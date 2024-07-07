@@ -1,0 +1,865 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="en" xml:lang="en"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.5.52">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+
+<title>Assumptions – Quarto_website</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="site_libs/quarto-nav/headroom.min.js"></script>
+<script src="site_libs/clipboard/clipboard.min.js"></script>
+<script src="site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="site_libs/quarto-search/fuse.min.js"></script>
+<script src="site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="./">
+<script src="site_libs/quarto-html/quarto.js"></script>
+<script src="site_libs/quarto-html/popper.min.js"></script>
+<script src="site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="site_libs/quarto-html/anchor.min.js"></script>
+<link href="site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="site_libs/quarto-html/quarto-syntax-highlighting.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="site_libs/bootstrap/bootstrap.min.css" rel="stylesheet" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "No results",
+    "search-matching-documents-text": "matching documents",
+    "search-copy-link-title": "Copy link to search",
+    "search-hide-matches-text": "Hide additional matches",
+    "search-more-match-text": "more match in this document",
+    "search-more-matches-text": "more matches in this document",
+    "search-clear-button-title": "Clear",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Cancel",
+    "search-submit-button-title": "Submit",
+    "search-label": "Search"
+  }
+}</script>
+
+
+<link rel="stylesheet" href="styles.css">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+      <div class="navbar-brand-container mx-auto">
+    <a class="navbar-brand" href="./index.html">
+    <span class="navbar-title">Quarto_website</span>
+    </a>
+  </div>
+            <div id="quarto-search" class="" title="Search"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Toggle navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="./index.html"> 
+<span class="menu-text">Home</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="./about.html"> 
+<span class="menu-text">About</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link active" href="./assumptions.html" aria-current="page"> 
+<span class="menu-text">Assumptions</span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">On this page</h2>
+   
+  <ul>
+  <li><a href="#assumptions-for-traditional-tests-of-hypothesis" id="toc-assumptions-for-traditional-tests-of-hypothesis" class="nav-link active" data-scroll-target="#assumptions-for-traditional-tests-of-hypothesis">Assumptions for Traditional Tests of Hypothesis</a></li>
+  <li><a href="#anova" id="toc-anova" class="nav-link" data-scroll-target="#anova">ANOVA</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-anova" id="toc-assumptions-for-anova" class="nav-link" data-scroll-target="#assumptions-for-anova">Assumptions for ANOVA</a></li>
+  <li><a href="#confirmation-of-assumptions-for-traditional-anova" id="toc-confirmation-of-assumptions-for-traditional-anova" class="nav-link" data-scroll-target="#confirmation-of-assumptions-for-traditional-anova">Confirmation of Assumptions for traditional ANOVA</a></li>
+  </ul></li>
+  <li><a href="#correlation-test" id="toc-correlation-test" class="nav-link" data-scroll-target="#correlation-test">Correlation Test</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-correlation-test" id="toc-assumptions-for-correlation-test" class="nav-link" data-scroll-target="#assumptions-for-correlation-test">Assumptions for Correlation Test</a></li>
+  <li><a href="#confirmation-of-assumptions-for-traditional-correlation-test" id="toc-confirmation-of-assumptions-for-traditional-correlation-test" class="nav-link" data-scroll-target="#confirmation-of-assumptions-for-traditional-correlation-test">Confirmation of Assumptions for traditional Correlation Test</a></li>
+  </ul></li>
+  <li><a href="#goodness-of-fit-test" id="toc-goodness-of-fit-test" class="nav-link" data-scroll-target="#goodness-of-fit-test">Goodness of Fit Test</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-a-chi-square-goodness-of-fit-test" id="toc-assumptions-for-a-chi-square-goodness-of-fit-test" class="nav-link" data-scroll-target="#assumptions-for-a-chi-square-goodness-of-fit-test">Assumptions for a Chi-square Goodness of Fit Test</a></li>
+  <li><a href="#confirmation-of-assumptions-methods" id="toc-confirmation-of-assumptions-methods" class="nav-link" data-scroll-target="#confirmation-of-assumptions-methods">Confirmation of Assumptions Methods</a></li>
+  </ul></li>
+  <li><a href="#one-sample-proportions-test." id="toc-one-sample-proportions-test." class="nav-link" data-scroll-target="#one-sample-proportions-test.">One-sample Proportions Test.</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-the-proportions-test" id="toc-assumptions-for-the-proportions-test" class="nav-link" data-scroll-target="#assumptions-for-the-proportions-test">Assumptions for the Proportions Test</a></li>
+  <li><a href="#confirmation-of-assumptions-for-the-traditional-1-sample-proportion-test" id="toc-confirmation-of-assumptions-for-the-traditional-1-sample-proportion-test" class="nav-link" data-scroll-target="#confirmation-of-assumptions-for-the-traditional-1-sample-proportion-test">Confirmation of Assumptions for the traditional 1-sample proportion test:</a>
+  <ul class="collapse">
+  <li><a href="#tools-for-confirmation" id="toc-tools-for-confirmation" class="nav-link" data-scroll-target="#tools-for-confirmation"><strong>Tools for Confirmation:</strong></a></li>
+  </ul></li>
+  </ul></li>
+  <li><a href="#test-for-independence" id="toc-test-for-independence" class="nav-link" data-scroll-target="#test-for-independence">Test for Independence</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-the-test-for-independence" id="toc-assumptions-for-the-test-for-independence" class="nav-link" data-scroll-target="#assumptions-for-the-test-for-independence">Assumptions for the Test for Independence</a></li>
+  <li><a href="#confirmation-of-the-assumptions-for-chi-square-test-for-independence" id="toc-confirmation-of-the-assumptions-for-chi-square-test-for-independence" class="nav-link" data-scroll-target="#confirmation-of-the-assumptions-for-chi-square-test-for-independence">Confirmation of the Assumptions for Chi-square Test for Independence</a></li>
+  </ul></li>
+  <li><a href="#test-for-means" id="toc-test-for-means" class="nav-link" data-scroll-target="#test-for-means">Test for Means</a>
+  <ul class="collapse">
+  <li><a href="#assumptions-for-t-test" id="toc-assumptions-for-t-test" class="nav-link" data-scroll-target="#assumptions-for-t-test">Assumptions for T Test</a></li>
+  <li><a href="#confirmation-of-assumptions-for-traditional-t-test" id="toc-confirmation-of-assumptions-for-traditional-t-test" class="nav-link" data-scroll-target="#confirmation-of-assumptions-for-traditional-t-test">Confirmation of Assumptions for traditional T Test</a></li>
+  </ul></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">Assumptions</h1>
+</div>
+
+
+
+<div class="quarto-title-meta">
+
+    
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<section id="assumptions-for-traditional-tests-of-hypothesis" class="level1">
+<h1>Assumptions for Traditional Tests of Hypothesis</h1>
+<p>Before using the results of a traditional hypothesis test, there are assumptions that must be checked and verified.</p>
+</section>
+<section id="anova" class="level1 unnumbered">
+<h1 class="unnumbered">ANOVA</h1>
+<section id="assumptions-for-anova" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions-for-anova">Assumptions for ANOVA</h2>
+<p>Traditional ANOVA (Analysis of Variance) relies on several assumptions to provide valid and reliable results. Here are the key assumptions:</p>
+<ol type="1">
+<li><p><strong>Independence</strong>: Observations within and between groups should be independent of each other. This means that the values of one observation should not be influenced by or related to the values of other observations.</p></li>
+<li><p><strong>Normality</strong>: The residuals (the differences between observed and predicted values) should follow a normal distribution. While ANOVA is robust to violations of normality when sample sizes are large, it’s more sensitive with smaller sample sizes.</p></li>
+<li><p><strong>Homogeneity of Variance (Homoscedasticity)</strong>: The variances of the residuals should be approximately equal across all groups. This assumption is known as homoscedasticity. Violations of this assumption might affect the reliability of the F-test.</p></li>
+<li><p><strong>Independence of Errors</strong>: The errors (residuals) should be independent of each other. This assumption implies that there should be no systematic pattern in the residuals.</p></li>
+<li><p><strong>Random Sampling</strong>: The data should be collected using a random sampling method to ensure that the sample is representative of the population being studied.</p></li>
+<li><p><strong>Interval or Ratio Scale Data</strong>: ANOVA assumes that the dependent variable is measured on an interval or ratio scale.</p></li>
+</ol>
+<p>When these assumptions are violated, the results of ANOVA may be unreliable, leading to incorrect conclusions. For instance, violations of normality might affect the accuracy of p-values, and violations of homoscedasticity might influence the validity of the F-test. However, ANOVA is known to be robust to violations of normality and equal variance assumptions, especially when sample sizes are large.</p>
+<p>When assumptions are not met, alternative approaches such as non-parametric tests or transformations of the data might be more appropriate or employing robust methods like bootstrapping can be considered to address the violations and provide more accurate results.</p>
+</section>
+<section id="confirmation-of-assumptions-for-traditional-anova" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="confirmation-of-assumptions-for-traditional-anova">Confirmation of Assumptions for traditional ANOVA</h2>
+<p>Confirming that the assumptions for ANOVA are met involves several diagnostic steps to assess the data. Here are ways to check for the assumptions:</p>
+<ol type="1">
+<li><p><strong>Normality</strong>:</p>
+<ul>
+<li><p><strong>Visual Inspection</strong>: Histograms, Q-Q plots, or density plots can be used to visually assess whether the residuals (differences between observed and predicted values) approximately follow a normal distribution for each group.</p></li>
+<li><p><strong>Statistical Tests</strong>: Shapiro-Wilk test, Kolmogorov-Smirnov test, or Anderson-Darling test can be employed to formally test for normality of residuals. However, these tests can be sensitive to sample size.</p></li>
+</ul></li>
+<li><p><strong>Homogeneity of Variance</strong>:</p>
+<ul>
+<li><p><strong>Visual Inspection</strong>: Plotting residuals against predicted values or group categories can help detect patterns or trends in variance.</p></li>
+<li><p><strong>Statistical Tests</strong>: Levene’s test or Bartlett’s test can be used to formally test the homogeneity of variance assumption among groups. However, these tests can be sensitive to departures from normality.</p></li>
+</ul></li>
+<li><p><strong>Independence of Errors</strong>:</p>
+<ul>
+<li>Check for patterns in residuals over time or across the data collection process. If there are systematic patterns, it might indicate a lack of independence.</li>
+</ul></li>
+<li><p><strong>Random Sampling</strong>:</p>
+<ul>
+<li>Ensure that the data was collected randomly from the population of interest. This assumption might not be directly tested but is important to consider in study design.</li>
+</ul></li>
+</ol>
+<p>To confirm these assumptions:</p>
+<ul>
+<li><p>Visual inspection of diagnostic plots can be informative but might not be conclusive.</p></li>
+<li><p>Statistical tests can provide formal assessments, but they might lack robustness, especially with smaller sample sizes.</p></li>
+<li><p>Consideration of the context of the study and the potential impact of violations on the ANOVA results is crucial.</p></li>
+</ul>
+<p>If assumptions are not met:</p>
+<ul>
+<li><p>Transformations of the data might be applied to meet assumptions (e.g., log transformation).</p></li>
+<li><p>Robust statistical methods or non-parametric tests (e.g., Kruskal-Wallis test instead of ANOVA) can be considered.</p></li>
+<li><p>Resampling methods like bootstrapping can provide more robust estimates in the presence of violations.</p></li>
+</ul>
+<p>Overall, no single method can definitively confirm all assumptions, so a combination of approaches and careful consideration of the data’s context is essential.</p>
+</section>
+</section>
+<section id="correlation-test" class="level1 unnumbered">
+<h1 class="unnumbered">Correlation Test</h1>
+<section id="assumptions-for-correlation-test" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions-for-correlation-test">Assumptions for Correlation Test</h2>
+<p>When performing a traditional hypothesis test for a correlation coefficient using the <code>cor.test()</code> function in R or any other method, certain assumptions should be considered. These assumptions include:</p>
+<ol type="1">
+<li><p><strong>Linear Relationship</strong>: The test assumes that the relationship between the variables is linear. If the relationship is not linear, the correlation coefficient might not accurately represent the association between the variables.</p></li>
+<li><p><strong>Normality</strong>: The variables should follow a bivariate normal distribution. While the test is robust to violations of normality for large sample sizes, for smaller sample sizes, normality is an important assumption.</p></li>
+<li><p><strong>Homoscedasticity</strong>: It’s assumed that the variability of the data points around the regression line is constant (homoscedastic). If the variability changes with the value of the independent variable, it is termed heteroscedasticity, which might affect the accuracy of the correlation coefficient.</p></li>
+<li><p><strong>No Outliers</strong>: The presence of outliers can significantly affect the correlation coefficient. It’s essential to check for outliers and their impact on the correlation.</p></li>
+<li><p><strong>Independence</strong>: The data points should be independent of each other. In some cases, especially with time series data or other specific cases, observations might not be independent.</p></li>
+</ol>
+<p>Violating these assumptions can affect the accuracy and interpretation of the correlation coefficient. Therefore, it’s advisable to check for these assumptions before interpreting the results of a correlation test. Additionally, non-parametric tests (e.g., Spearman’s rank correlation) might be more appropriate if the assumptions for Pearson’s correlation are not met.</p>
+</section>
+<section id="confirmation-of-assumptions-for-traditional-correlation-test" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="confirmation-of-assumptions-for-traditional-correlation-test">Confirmation of Assumptions for traditional Correlation Test</h2>
+<p>To confirm whether the assumptions for conducting a correlation test are met, you can perform several diagnostic checks and statistical tests. Here are some methods to assess the assumptions:</p>
+<ol type="1">
+<li><strong>Visual Inspection</strong>:
+<ul>
+<li><strong>Scatterplot</strong>: Plot the data using a scatterplot to visually inspect the relationship between the variables. Check for linearity and outliers.</li>
+<li><strong>Residual Plot</strong>: If you perform a regression to test the correlation, examine the residual plot to assess homoscedasticity. Residuals should be evenly distributed around zero.</li>
+</ul></li>
+<li><strong>Normality Check</strong>:
+<ul>
+<li><strong>Normal Q-Q plot</strong>: Check the normality assumption using a Q-Q plot. If the points fall along a diagonal line, the assumption of normality might be reasonable. You can also use statistical tests like Shapiro-Wilk or Kolmogorov-Smirnov to test for normality.</li>
+</ul></li>
+<li><strong>Tests for Homoscedasticity</strong>:
+<ul>
+<li><strong>Breusch-Pagan Test</strong> or <strong>White Test</strong>: These are formal tests to check for homoscedasticity in regression models. They test whether the variances of the errors/residuals are constant.</li>
+</ul></li>
+<li><strong>Outlier Detection</strong>:
+<ul>
+<li><strong>Boxplot</strong>: Create a boxplot for each variable to detect outliers.</li>
+<li><strong>Cook’s distance</strong>: For regression analysis, Cook’s distance can help identify influential points that might affect the correlation.</li>
+</ul></li>
+<li><strong>Assessing Independence</strong>:
+<ul>
+<li>For time series data, autocorrelation plots or Durbin-Watson tests can be used to detect autocorrelation.</li>
+</ul></li>
+</ol>
+<p>Performing these diagnostic checks will help you assess whether the assumptions for a correlation test are reasonably met. If these assumptions are violated, you might need to consider alternative methods or transformations to address these issues. In cases of severe violations, using non-parametric correlation tests such as Spearman’s or Kendall’s correlation might be more appropriate, as they are less sensitive to these assumptions.</p>
+</section>
+</section>
+<section id="goodness-of-fit-test" class="level1 unnumbered">
+<h1 class="unnumbered">Goodness of Fit Test</h1>
+<section id="assumptions-for-a-chi-square-goodness-of-fit-test" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions-for-a-chi-square-goodness-of-fit-test">Assumptions for a Chi-square Goodness of Fit Test</h2>
+<p>Goodness-of-fit tests assess how well an observed frequency distribution fits an expected theoretical distribution. The assumptions for conducting a goodness-of-fit test primarily depend on the specific test being used. However, some general assumptions are common across these tests:</p>
+<p>Random Sampling: The data used in the test should be obtained through a random sampling process to ensure representativeness of the population.</p>
+<p>Categorical Data: The data should be categorical in nature, consisting of counts or frequencies within different categories or groups.</p>
+<p>Independence: The observations should be independent of each other. Each individual or item should belong to only one category and not influence the category of another.</p>
+<p>Large Sample Size (for certain tests): For some goodness-of-fit tests (like the chi-square goodness-of-fit test), larger expected frequencies in each category (usually at least 5) are assumed to ensure the validity of the asymptotic distribution of the test statistic.</p>
+<p>Expected Frequencies: The expected frequencies (often derived from a theoretical distribution or assumed proportions) should be known or estimable for each category or group being compared.</p>
+<p>Mutually Exclusive Categories: Categories or groups being compared should be mutually exclusive, meaning an individual or item can belong to only one category.</p>
+</section>
+<section id="confirmation-of-assumptions-methods" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="confirmation-of-assumptions-methods">Confirmation of Assumptions Methods</h2>
+<p>Theoretical Model Specification: The expected frequencies should be derived from a specific theoretical model or hypothesis about the distribution of the categorical variable. The goodness-of-fit test assesses how well the observed data aligns with this theoretical model.</p>
+<ol type="1">
+<li><p>Random Sampling: Ensure that the data is collected through a random sampling method. This could involve examining the data collection process, understanding how samples were selected, and confirming that it was done without bias.</p></li>
+<li><p>Categorical Data: Verify that your data is categorical, consisting of counts or frequencies within distinct categories. Check the nature of your variables to ensure they fall into categorical types.</p></li>
+<li><p>Independence: Independence can be assessed by examining the data collection methodology and ensuring that each observation is independent of others. For instance, in survey data, ensure that responses from different individuals are not influenced by each other.</p></li>
+<li><p>Large Sample Size (if required): If your test assumes larger expected frequencies in each category, confirm that your sample size is sufficient to meet this assumption. This might involve assessing the expected frequencies in each category based on your sample.</p></li>
+<li><p>Expected Frequencies: Calculate or estimate the expected frequencies for each category based on your theoretical model or hypothesis. Ensure that these expected frequencies align with your research expectations.</p></li>
+<li><p>Mutually Exclusive Categories: Check that each observation belongs to only one category or group. There should be no overlap or ambiguity in categorizing the data.</p></li>
+<li><p>Theoretical Model Specification: Evaluate the appropriateness of the chosen theoretical model. This might involve reviewing prior research, understanding the context of your data, and ensuring that the model fits the nature of your categorical variable.</p></li>
+</ol>
+</section>
+</section>
+<section id="one-sample-proportions-test." class="level1 unnumbered">
+<h1 class="unnumbered">One-sample Proportions Test.</h1>
+<section id="assumptions-for-the-proportions-test" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions-for-the-proportions-test">Assumptions for the Proportions Test</h2>
+<p>The 1-sample proportion test, often performed using functions like <strong><code>prop_test()</code></strong> in the <strong><code>infer</code></strong> package in R, is used to assess whether a sample proportion differs significantly from a hypothesized population proportion. When conducting this test, it’s important to consider several assumptions and conditions:</p>
+<ol type="1">
+<li><p><strong>Random Sampling:</strong> The sample should be collected through a random process to ensure that it is representative of the population from which it’s drawn.</p></li>
+<li><p><strong>Independence:</strong> Individual observations within the sample should be independent of each other. For example, in survey data, one respondent’s answer should not influence another respondent’s answer.</p></li>
+<li><p><strong>Binary Outcome:</strong> The variable being analyzed should be categorical and binary in nature, indicating two possible outcomes (e.g., success/failure, yes/no).</p></li>
+<li><p><strong>Sample Size:</strong> There are guidelines for the sample size based on the distribution of the sample proportion. Generally, a rule of thumb is that both the number of successes (events) and failures should be at least 5 in the sample. This guideline ensures that the sampling distribution of the sample proportion is approximately normal.</p></li>
+<li><p><strong>Large Population Assumption:</strong> For a finite population, if the sample size is more than 5% of the population, adjustments may need to be made in the calculation of the standard error to account for the finite population correction.</p></li>
+<li><p><strong>Theoretical Conditions for Inference:</strong> Underlying these assumptions is the assumption that the sampling distribution of the sample proportion is approximately normal, especially for large sample sizes (due to the Central Limit Theorem). This assumption supports the use of normal approximations for significance testing and confidence intervals.</p></li>
+</ol>
+</section>
+<section id="confirmation-of-assumptions-for-the-traditional-1-sample-proportion-test" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="confirmation-of-assumptions-for-the-traditional-1-sample-proportion-test">Confirmation of Assumptions for the traditional 1-sample proportion test:</h2>
+<p><strong>Assumption 1: Random Sampling</strong></p>
+<ul>
+<li><strong>Check Data Collection Methodology:</strong> Review the method used to collect the sample. Ensure it was obtained randomly or via a process that represents the population without bias.</li>
+</ul>
+<p><strong>Assumption 2: Binary Outcome</strong></p>
+<ul>
+<li><strong>Examine Data Structure:</strong> Verify that the variable being analyzed is categorical with two distinct categories (e.g., yes/no, success/failure).</li>
+</ul>
+<p><strong>Assumption 3: Independence</strong></p>
+<ul>
+<li><p><strong>Data Collection Process:</strong> Confirm that individual observations are independent and not influenced by each other. For instance, in survey data, one respondent’s answer shouldn’t influence another respondent’s answer.</p></li>
+<li><p><strong>Temporal Independence:</strong> If data was collected over time, ensure observations across time points are not correlated.</p></li>
+</ul>
+<p><strong>Assumption 4: Sample Size</strong></p>
+<ul>
+<li><p><strong>Count Successes and Failures:</strong> Calculate and ensure that both the number of successes and failures in the sample are reasonably large (typically at least 5 for each).</p></li>
+<li><p><strong>Sample Size Adequacy:</strong> Assess if the overall sample size is sufficient for the analysis.</p></li>
+</ul>
+<p><strong>Assumption 5: Large Population Assumption (if applicable)</strong></p>
+<ul>
+<li><strong>Relative to Population Size:</strong> If dealing with a finite population, ensure the sample size is not too large relative to the population size. Adjustments might be needed in calculations to account for this.</li>
+</ul>
+<p><strong>Additional Consideration:</strong></p>
+<ul>
+<li><strong>Normality Assumption:</strong> Although not a strict assumption for the one-sample proportion test, for larger sample sizes, consider examining the distribution of the sample proportions. This can be done visually using histograms or normality tests to ensure that the sampling distribution of proportions is approximately normal due to the Central Limit Theorem.</li>
+</ul>
+<section id="tools-for-confirmation" class="level3 unnumbered">
+<h3 class="unnumbered anchored" data-anchor-id="tools-for-confirmation"><strong>Tools for Confirmation:</strong></h3>
+<ul>
+<li><p><strong>Descriptive Statistics:</strong> Compute summary statistics (e.g., proportions, counts) to understand the nature of the data.</p></li>
+<li><p><strong>Visualizations:</strong> Use bar plots or histograms to visualize the distribution of the categorical variable.</p></li>
+<li><p><strong>Review Documentation:</strong> Understand the data collection process and any known biases or influences.</p></li>
+<li><p><strong>Simulations (if needed):</strong> Utilize bootstrapping or simulation methods to assess the variability of proportions.</p></li>
+</ul>
+</section>
+</section>
+</section>
+<section id="test-for-independence" class="level1 unnumbered">
+<h1 class="unnumbered">Test for Independence</h1>
+<section id="assumptions-for-the-test-for-independence" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions-for-the-test-for-independence">Assumptions for the Test for Independence</h2>
+<p>The Chi-square Test for Independence is used to determine if there’s a significant association between two categorical variables. Several assumptions need to be met for this test to be valid:</p>
+<ol type="1">
+<li><p>Independence of observations: The data should be collected independently and should not be related in any way.</p></li>
+<li><p>Random sampling: The data should be obtained through a random sampling method from the population of interest.</p></li>
+<li><p>Categorical data: The variables under consideration must be categorical, meaning they fall into categories or groups rather than being continuous.</p></li>
+<li><p>Expected cell frequencies: The expected frequency in each cell of the contingency table should not be too low (typically no cell should have an expected frequency less than 5). If many cells have expected frequencies below 5, the chi-square test may not be valid, and alternatives like Fisher’s exact test might be more appropriate.</p></li>
+</ol>
+<p>If these assumptions are met, the Chi-square test can effectively analyze the association between categorical variables.</p>
+</section>
+<section id="confirmation-of-the-assumptions-for-chi-square-test-for-independence" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="confirmation-of-the-assumptions-for-chi-square-test-for-independence">Confirmation of the Assumptions for Chi-square Test for Independence</h2>
+<p>To ensure the assumptions for the Chi-square test for independence are met, several methods can be employed:</p>
+<ul>
+<li><p>Independence of observations:</p>
+<ul>
+<li><p>Review the data collection process to ensure that observations are indeed independent. Investigate if there are any reasons why observations might be related or dependent on each other. Random sampling:</p></li>
+<li><p>Verify that the data was collected using a random sampling method. If possible, check the sampling methodology used in data collection. Categorical data:</p></li>
+</ul></li>
+<li><p>Confirm that the variables being analyzed are categorical, falling into distinct groups or categories. Check the data type of variables to ensure they are categorical. Expected cell frequencies:</p></li>
+<li><p>Create a contingency table with the categorical variables and review the expected frequencies in each cell. Use the formula for expected cell frequencies: Expected Frequency = ( Row Total × Column Total ) /Grand Total. ​</p></li>
+<li><p>Ensure that no cell has an expected frequency less than 5 (this is a guideline, not a strict rule). If there are low expected frequencies, consider combining categories or using alternative statistical methods.</p></li>
+<li><p>Additionally, visual inspection of the data via graphical representations (such as bar charts or contingency tables) can sometimes provide insights into potential issues with the assumptions.</p></li>
+<li><p>Simpler statistical techniques like descriptive statistics may also offer preliminary insights into the nature of the data and potential violations of assumptions.</p></li>
+</ul>
+</section>
+</section>
+<section id="test-for-means" class="level1 unnumbered">
+<h1 class="unnumbered">Test for Means</h1>
+<section id="assumptions-for-t-test" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="assumptions-for-t-test">Assumptions for T Test</h2>
+<p>The traditional t-test for the difference in two means assumes several conditions for its validity. The most important assumptions include:</p>
+<ol type="1">
+<li><p><strong>Independence</strong>: The data points in each group should be independent of each other. One observation should not influence another.</p></li>
+<li><p><strong>Normality</strong>: The data within each group should follow a normal distribution. However, the t-test is relatively robust to violations of normality, especially with larger sample sizes (Central Limit Theorem helps in this case).</p></li>
+<li><p><strong>Homogeneity of Variance (Homoscedasticity)</strong>: The variances within each group should be roughly equal. This assumption is important for the validity of the pooled variance formula in the t-test.</p></li>
+</ol>
+<p>If these assumptions are reasonably met, the t-test is considered to be valid for comparing the means of two groups. It’s important to note that violation of these assumptions might affect the accuracy and reliability of the test results.</p>
+<p>In cases where assumptions are not met, alternative tests or adjustments may be considered. For example, non-parametric tests like the Mann-Whitney U test (for independent samples) or Wilcoxon signed-rank test (for paired samples) could be used if normality or homogeneity of variance assumptions are not satisfied. Additionally, transformations or robust statistical methods might be applied to mitigate the impact of violated assumptions.</p>
+</section>
+<section id="confirmation-of-assumptions-for-traditional-t-test" class="level2 unnumbered">
+<h2 class="unnumbered anchored" data-anchor-id="confirmation-of-assumptions-for-traditional-t-test">Confirmation of Assumptions for traditional T Test</h2>
+<p>To confirm whether the assumptions for conducting a t-test for the difference in two means are met, you can perform various checks and tests. Here’s a step-by-step approach to assess the assumptions:</p>
+<ol type="1">
+<li><p><strong>Visual Inspection</strong>:</p>
+<ul>
+<li><p><strong>Histograms and Q-Q Plots</strong>: Check the distribution of each group using histograms and Q-Q plots to assess normality.</p></li>
+<li><p><strong>Boxplots</strong>: Visualize the spread of the data in each group to look for outliers and differences in variance.</p></li>
+</ul></li>
+<li><p><strong>Statistical Tests</strong>:</p>
+<ul>
+<li><p><strong>Normality Tests</strong>: Utilize tests like the Shapiro-Wilk test, Kolmogorov-Smirnov test, or Anderson-Darling test to formally assess normality within each group. These tests evaluate if the data deviate significantly from a normal distribution.</p></li>
+<li><p><strong>Homogeneity of Variance Test</strong>: Perform tests like Levene’s test or Bartlett’s test to check if the variances in the groups are similar. These tests determine whether the assumption of equal variances is violated.</p></li>
+</ul></li>
+<li><p><strong>Observation of Residuals</strong>:</p>
+<ul>
+<li>If you’re using a paired t-test or a t-test in the context of linear regression, examine the residuals for normality and homoscedasticity. Residuals should be normally distributed and show constant variance around zero.</li>
+</ul></li>
+<li><p><strong>Sample Size Consideration</strong>:</p>
+<ul>
+<li>Larger sample sizes tend to be more robust to violations of normality and homogeneity of variance assumptions. If the sample size is small, consider non-parametric tests that are less sensitive to these assumptions.</li>
+</ul></li>
+</ol>
+<p>If the assumptions are not met:</p>
+<ul>
+<li><p><strong>Non-parametric Tests</strong>: Consider using non-parametric alternatives like the Wilcoxon signed-rank test for paired samples or the Mann-Whitney U test for independent samples, which are robust to deviations from normality and variances.</p></li>
+<li><p><strong>Transformation</strong>: Transform the data (e.g., logarithmic, square root) to normalize the distribution or stabilize variances.</p></li>
+<li><p><strong>Robust Methods</strong>: Explore robust statistical methods that are less sensitive to assumptions, such as Welch’s t-test, which does not assume equal variances.</p></li>
+</ul>
+<p>Performing these tests and checks helps ensure that the assumptions of the t-test are reasonably met. However, it’s essential to interpret the results cautiously if the assumptions are violated, considering alternative methods or transformations to address these issues.</p>
+<p>V2.1, 12/30/23</p>
+<p>Last Compiled r Sys.Date()</p>
+
+
+</section>
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copied!");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copied!");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+</div> <!-- /content -->
+
+
+
+
+</body></html>

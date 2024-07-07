@@ -1,0 +1,296 @@
+---
+title: "Assumptions"
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Assumptions for Traditional Tests of Hypothesis
+
+Before using the results of a traditional hypothesis test, there are assumptions that must be checked and verified.
+
+# ANOVA {.unnumbered}
+
+## Assumptions for ANOVA {.unnumbered}
+
+Traditional ANOVA (Analysis of Variance) relies on several assumptions to provide valid and reliable results. Here are the key assumptions:
+
+1.  **Independence**: Observations within and between groups should be independent of each other. This means that the values of one observation should not be influenced by or related to the values of other observations.
+
+2.  **Normality**: The residuals (the differences between observed and predicted values) should follow a normal distribution. While ANOVA is robust to violations of normality when sample sizes are large, it's more sensitive with smaller sample sizes.
+
+3.  **Homogeneity of Variance (Homoscedasticity)**: The variances of the residuals should be approximately equal across all groups. This assumption is known as homoscedasticity. Violations of this assumption might affect the reliability of the F-test.
+
+4.  **Independence of Errors**: The errors (residuals) should be independent of each other. This assumption implies that there should be no systematic pattern in the residuals.
+
+5.  **Random Sampling**: The data should be collected using a random sampling method to ensure that the sample is representative of the population being studied.
+
+6.  **Interval or Ratio Scale Data**: ANOVA assumes that the dependent variable is measured on an interval or ratio scale.
+
+When these assumptions are violated, the results of ANOVA may be unreliable, leading to incorrect conclusions. For instance, violations of normality might affect the accuracy of p-values, and violations of homoscedasticity might influence the validity of the F-test. However, ANOVA is known to be robust to violations of normality and equal variance assumptions, especially when sample sizes are large.
+
+When assumptions are not met, alternative approaches such as non-parametric tests or transformations of the data might be more appropriate or employing robust methods like bootstrapping can be considered to address the violations and provide more accurate results.
+
+## Confirmation of Assumptions for traditional ANOVA {.unnumbered}
+
+Confirming that the assumptions for ANOVA are met involves several diagnostic steps to assess the data. Here are ways to check for the assumptions:
+
+1.  **Normality**:
+
+    -   **Visual Inspection**: Histograms, Q-Q plots, or density plots can be used to visually assess whether the residuals (differences between observed and predicted values) approximately follow a normal distribution for each group.
+
+    -   **Statistical Tests**: Shapiro-Wilk test, Kolmogorov-Smirnov test, or Anderson-Darling test can be employed to formally test for normality of residuals. However, these tests can be sensitive to sample size.
+
+2.  **Homogeneity of Variance**:
+
+    -   **Visual Inspection**: Plotting residuals against predicted values or group categories can help detect patterns or trends in variance.
+
+    -   **Statistical Tests**: Levene's test or Bartlett's test can be used to formally test the homogeneity of variance assumption among groups. However, these tests can be sensitive to departures from normality.
+
+3.  **Independence of Errors**:
+
+    -   Check for patterns in residuals over time or across the data collection process. If there are systematic patterns, it might indicate a lack of independence.
+
+4.  **Random Sampling**:
+
+    -   Ensure that the data was collected randomly from the population of interest. This assumption might not be directly tested but is important to consider in study design.
+
+To confirm these assumptions:
+
+-   Visual inspection of diagnostic plots can be informative but might not be conclusive.
+
+-   Statistical tests can provide formal assessments, but they might lack robustness, especially with smaller sample sizes.
+
+-   Consideration of the context of the study and the potential impact of violations on the ANOVA results is crucial.
+
+If assumptions are not met:
+
+-   Transformations of the data might be applied to meet assumptions (e.g., log transformation).
+
+-   Robust statistical methods or non-parametric tests (e.g., Kruskal-Wallis test instead of ANOVA) can be considered.
+
+-   Resampling methods like bootstrapping can provide more robust estimates in the presence of violations.
+
+Overall, no single method can definitively confirm all assumptions, so a combination of approaches and careful consideration of the data's context is essential.
+
+# Correlation Test {.unnumbered}
+
+## Assumptions for Correlation Test {.unnumbered}
+
+When performing a traditional hypothesis test for a correlation coefficient using the `cor.test()` function in R or any other method, certain assumptions should be considered. These assumptions include:
+
+1.  **Linear Relationship**: The test assumes that the relationship between the variables is linear. If the relationship is not linear, the correlation coefficient might not accurately represent the association between the variables.
+
+2.  **Normality**: The variables should follow a bivariate normal distribution. While the test is robust to violations of normality for large sample sizes, for smaller sample sizes, normality is an important assumption.
+
+3.  **Homoscedasticity**: It's assumed that the variability of the data points around the regression line is constant (homoscedastic). If the variability changes with the value of the independent variable, it is termed heteroscedasticity, which might affect the accuracy of the correlation coefficient.
+
+4.  **No Outliers**: The presence of outliers can significantly affect the correlation coefficient. It's essential to check for outliers and their impact on the correlation.
+
+5.  **Independence**: The data points should be independent of each other. In some cases, especially with time series data or other specific cases, observations might not be independent.
+
+Violating these assumptions can affect the accuracy and interpretation of the correlation coefficient. Therefore, it's advisable to check for these assumptions before interpreting the results of a correlation test. Additionally, non-parametric tests (e.g., Spearman's rank correlation) might be more appropriate if the assumptions for Pearson's correlation are not met.
+
+## Confirmation of Assumptions for traditional Correlation Test {.unnumbered}
+
+To confirm whether the assumptions for conducting a correlation test are met, you can perform several diagnostic checks and statistical tests. Here are some methods to assess the assumptions:
+
+1.  **Visual Inspection**:
+    -   **Scatterplot**: Plot the data using a scatterplot to visually inspect the relationship between the variables. Check for linearity and outliers.
+    -   **Residual Plot**: If you perform a regression to test the correlation, examine the residual plot to assess homoscedasticity. Residuals should be evenly distributed around zero.
+2.  **Normality Check**:
+    -   **Normal Q-Q plot**: Check the normality assumption using a Q-Q plot. If the points fall along a diagonal line, the assumption of normality might be reasonable. You can also use statistical tests like Shapiro-Wilk or Kolmogorov-Smirnov to test for normality.
+3.  **Tests for Homoscedasticity**:
+    -   **Breusch-Pagan Test** or **White Test**: These are formal tests to check for homoscedasticity in regression models. They test whether the variances of the errors/residuals are constant.
+4.  **Outlier Detection**:
+    -   **Boxplot**: Create a boxplot for each variable to detect outliers.
+    -   **Cook's distance**: For regression analysis, Cook's distance can help identify influential points that might affect the correlation.
+5.  **Assessing Independence**:
+    -   For time series data, autocorrelation plots or Durbin-Watson tests can be used to detect autocorrelation.
+
+Performing these diagnostic checks will help you assess whether the assumptions for a correlation test are reasonably met. If these assumptions are violated, you might need to consider alternative methods or transformations to address these issues. In cases of severe violations, using non-parametric correlation tests such as Spearman's or Kendall's correlation might be more appropriate, as they are less sensitive to these assumptions.
+
+# Goodness of Fit Test {.unnumbered}
+
+## Assumptions for a Chi-square Goodness of Fit Test {.unnumbered}
+
+Goodness-of-fit tests assess how well an observed frequency distribution fits an expected theoretical distribution. The assumptions for conducting a goodness-of-fit test primarily depend on the specific test being used. However, some general assumptions are common across these tests:
+
+Random Sampling: The data used in the test should be obtained through a random sampling process to ensure representativeness of the population.
+
+Categorical Data: The data should be categorical in nature, consisting of counts or frequencies within different categories or groups.
+
+Independence: The observations should be independent of each other. Each individual or item should belong to only one category and not influence the category of another.
+
+Large Sample Size (for certain tests): For some goodness-of-fit tests (like the chi-square goodness-of-fit test), larger expected frequencies in each category (usually at least 5) are assumed to ensure the validity of the asymptotic distribution of the test statistic.
+
+Expected Frequencies: The expected frequencies (often derived from a theoretical distribution or assumed proportions) should be known or estimable for each category or group being compared.
+
+Mutually Exclusive Categories: Categories or groups being compared should be mutually exclusive, meaning an individual or item can belong to only one category.
+
+## Confirmation of Assumptions Methods {.unnumbered}
+
+Theoretical Model Specification: The expected frequencies should be derived from a specific theoretical model or hypothesis about the distribution of the categorical variable. The goodness-of-fit test assesses how well the observed data aligns with this theoretical model.
+
+1.  Random Sampling: Ensure that the data is collected through a random sampling method. This could involve examining the data collection process, understanding how samples were selected, and confirming that it was done without bias.
+
+2.  Categorical Data: Verify that your data is categorical, consisting of counts or frequencies within distinct categories. Check the nature of your variables to ensure they fall into categorical types.
+
+3.  Independence: Independence can be assessed by examining the data collection methodology and ensuring that each observation is independent of others. For instance, in survey data, ensure that responses from different individuals are not influenced by each other.
+
+4.  Large Sample Size (if required): If your test assumes larger expected frequencies in each category, confirm that your sample size is sufficient to meet this assumption. This might involve assessing the expected frequencies in each category based on your sample.
+
+5.  Expected Frequencies: Calculate or estimate the expected frequencies for each category based on your theoretical model or hypothesis. Ensure that these expected frequencies align with your research expectations.
+
+6.  Mutually Exclusive Categories: Check that each observation belongs to only one category or group. There should be no overlap or ambiguity in categorizing the data.
+
+7.  Theoretical Model Specification: Evaluate the appropriateness of the chosen theoretical model. This might involve reviewing prior research, understanding the context of your data, and ensuring that the model fits the nature of your categorical variable.
+
+# One-sample Proportions Test. {.unnumbered}
+
+## Assumptions for the Proportions Test {.unnumbered}
+
+The 1-sample proportion test, often performed using functions like **`prop_test()`** in the **`infer`** package in R, is used to assess whether a sample proportion differs significantly from a hypothesized population proportion. When conducting this test, it's important to consider several assumptions and conditions:
+
+1.  **Random Sampling:** The sample should be collected through a random process to ensure that it is representative of the population from which it's drawn.
+
+2.  **Independence:** Individual observations within the sample should be independent of each other. For example, in survey data, one respondent's answer should not influence another respondent's answer.
+
+3.  **Binary Outcome:** The variable being analyzed should be categorical and binary in nature, indicating two possible outcomes (e.g., success/failure, yes/no).
+
+4.  **Sample Size:** There are guidelines for the sample size based on the distribution of the sample proportion. Generally, a rule of thumb is that both the number of successes (events) and failures should be at least 5 in the sample. This guideline ensures that the sampling distribution of the sample proportion is approximately normal.
+
+5.  **Large Population Assumption:** For a finite population, if the sample size is more than 5% of the population, adjustments may need to be made in the calculation of the standard error to account for the finite population correction.
+
+6.  **Theoretical Conditions for Inference:** Underlying these assumptions is the assumption that the sampling distribution of the sample proportion is approximately normal, especially for large sample sizes (due to the Central Limit Theorem). This assumption supports the use of normal approximations for significance testing and confidence intervals.
+
+## Confirmation of Assumptions for the traditional 1-sample proportion test: {.unnumbered}
+
+**Assumption 1: Random Sampling**
+
+-   **Check Data Collection Methodology:** Review the method used to collect the sample. Ensure it was obtained randomly or via a process that represents the population without bias.
+
+**Assumption 2: Binary Outcome**
+
+-   **Examine Data Structure:** Verify that the variable being analyzed is categorical with two distinct categories (e.g., yes/no, success/failure).
+
+**Assumption 3: Independence**
+
+-   **Data Collection Process:** Confirm that individual observations are independent and not influenced by each other. For instance, in survey data, one respondent's answer shouldn’t influence another respondent's answer.
+
+-   **Temporal Independence:** If data was collected over time, ensure observations across time points are not correlated.
+
+**Assumption 4: Sample Size**
+
+-   **Count Successes and Failures:** Calculate and ensure that both the number of successes and failures in the sample are reasonably large (typically at least 5 for each).
+
+-   **Sample Size Adequacy:** Assess if the overall sample size is sufficient for the analysis.
+
+**Assumption 5: Large Population Assumption (if applicable)**
+
+-   **Relative to Population Size:** If dealing with a finite population, ensure the sample size is not too large relative to the population size. Adjustments might be needed in calculations to account for this.
+
+**Additional Consideration:**
+
+-   **Normality Assumption:** Although not a strict assumption for the one-sample proportion test, for larger sample sizes, consider examining the distribution of the sample proportions. This can be done visually using histograms or normality tests to ensure that the sampling distribution of proportions is approximately normal due to the Central Limit Theorem.
+
+### **Tools for Confirmation:** {.unnumbered}
+
+-   **Descriptive Statistics:** Compute summary statistics (e.g., proportions, counts) to understand the nature of the data.
+
+-   **Visualizations:** Use bar plots or histograms to visualize the distribution of the categorical variable.
+
+-   **Review Documentation:** Understand the data collection process and any known biases or influences.
+
+-   **Simulations (if needed):** Utilize bootstrapping or simulation methods to assess the variability of proportions.
+
+# Test for Independence {.unnumbered}
+
+## Assumptions for the Test for Independence {.unnumbered}
+
+The Chi-square Test for Independence is used to determine if there's a significant association between two categorical variables. Several assumptions need to be met for this test to be valid:
+
+1.  Independence of observations: The data should be collected independently and should not be related in any way.
+
+2.  Random sampling: The data should be obtained through a random sampling method from the population of interest.
+
+3.  Categorical data: The variables under consideration must be categorical, meaning they fall into categories or groups rather than being continuous.
+
+4.  Expected cell frequencies: The expected frequency in each cell of the contingency table should not be too low (typically no cell should have an expected frequency less than 5). If many cells have expected frequencies below 5, the chi-square test may not be valid, and alternatives like Fisher's exact test might be more appropriate.
+
+If these assumptions are met, the Chi-square test can effectively analyze the association between categorical variables.
+
+## Confirmation of the Assumptions for Chi-square Test for Independence {.unnumbered}
+
+To ensure the assumptions for the Chi-square test for independence are met, several methods can be employed:
+
+-   Independence of observations:
+
+    -   Review the data collection process to ensure that observations are indeed independent. Investigate if there are any reasons why observations might be related or dependent on each other. Random sampling:
+
+    -   Verify that the data was collected using a random sampling method. If possible, check the sampling methodology used in data collection. Categorical data:
+
+-   Confirm that the variables being analyzed are categorical, falling into distinct groups or categories. Check the data type of variables to ensure they are categorical. Expected cell frequencies:
+
+-   Create a contingency table with the categorical variables and review the expected frequencies in each cell. Use the formula for expected cell frequencies: Expected Frequency = ( Row Total × Column Total ) /Grand Total. ​
+
+-   Ensure that no cell has an expected frequency less than 5 (this is a guideline, not a strict rule). If there are low expected frequencies, consider combining categories or using alternative statistical methods.
+
+-   Additionally, visual inspection of the data via graphical representations (such as bar charts or contingency tables) can sometimes provide insights into potential issues with the assumptions.
+
+-   Simpler statistical techniques like descriptive statistics may also offer preliminary insights into the nature of the data and potential violations of assumptions.
+
+# Test for Means {.unnumbered}
+
+## Assumptions for T Test {.unnumbered}
+
+The traditional t-test for the difference in two means assumes several conditions for its validity. The most important assumptions include:
+
+1.  **Independence**: The data points in each group should be independent of each other. One observation should not influence another.
+
+2.  **Normality**: The data within each group should follow a normal distribution. However, the t-test is relatively robust to violations of normality, especially with larger sample sizes (Central Limit Theorem helps in this case).
+
+3.  **Homogeneity of Variance (Homoscedasticity)**: The variances within each group should be roughly equal. This assumption is important for the validity of the pooled variance formula in the t-test.
+
+If these assumptions are reasonably met, the t-test is considered to be valid for comparing the means of two groups. It's important to note that violation of these assumptions might affect the accuracy and reliability of the test results.
+
+In cases where assumptions are not met, alternative tests or adjustments may be considered. For example, non-parametric tests like the Mann-Whitney U test (for independent samples) or Wilcoxon signed-rank test (for paired samples) could be used if normality or homogeneity of variance assumptions are not satisfied. Additionally, transformations or robust statistical methods might be applied to mitigate the impact of violated assumptions.
+
+## Confirmation of Assumptions for traditional T Test {.unnumbered}
+
+To confirm whether the assumptions for conducting a t-test for the difference in two means are met, you can perform various checks and tests. Here's a step-by-step approach to assess the assumptions:
+
+1.  **Visual Inspection**:
+
+    -   **Histograms and Q-Q Plots**: Check the distribution of each group using histograms and Q-Q plots to assess normality.
+
+    -   **Boxplots**: Visualize the spread of the data in each group to look for outliers and differences in variance.
+
+2.  **Statistical Tests**:
+
+    -   **Normality Tests**: Utilize tests like the Shapiro-Wilk test, Kolmogorov-Smirnov test, or Anderson-Darling test to formally assess normality within each group. These tests evaluate if the data deviate significantly from a normal distribution.
+
+    -   **Homogeneity of Variance Test**: Perform tests like Levene's test or Bartlett's test to check if the variances in the groups are similar. These tests determine whether the assumption of equal variances is violated.
+
+3.  **Observation of Residuals**:
+
+    -   If you're using a paired t-test or a t-test in the context of linear regression, examine the residuals for normality and homoscedasticity. Residuals should be normally distributed and show constant variance around zero.
+
+4.  **Sample Size Consideration**:
+
+    -   Larger sample sizes tend to be more robust to violations of normality and homogeneity of variance assumptions. If the sample size is small, consider non-parametric tests that are less sensitive to these assumptions.
+
+If the assumptions are not met:
+
+-   **Non-parametric Tests**: Consider using non-parametric alternatives like the Wilcoxon signed-rank test for paired samples or the Mann-Whitney U test for independent samples, which are robust to deviations from normality and variances.
+
+-   **Transformation**: Transform the data (e.g., logarithmic, square root) to normalize the distribution or stabilize variances.
+
+-   **Robust Methods**: Explore robust statistical methods that are less sensitive to assumptions, such as Welch's t-test, which does not assume equal variances.
+
+Performing these tests and checks helps ensure that the assumptions of the t-test are reasonably met. However, it's essential to interpret the results cautiously if the assumptions are violated, considering alternative methods or transformations to address these issues.
+
+V2.2, Date 7/6/24
+
+Last Compiled r Sys.Date()
